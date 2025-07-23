@@ -7,12 +7,22 @@ module.exports = {
   devtool: "eval-source-map",
   mode: "development",
   devServer: {
-    port: 2000,
-    contentBase: path.resolve(__dirname, "..", "./dist"),
-    watchContentBase: true,
+    port: process.env.PORT || 2000,
+    host: process.env.HOST || "localhost",
+    static: {
+      directory: path.resolve(__dirname, "..", "./dist"),
+      watch: true,
+    },
     open: true,
     compress: true,
     hot: true,
+    historyApiFallback: true,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),

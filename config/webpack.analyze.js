@@ -7,6 +7,9 @@ module.exports = {
       analyzerMode: "static",
       reportFilename: path.resolve(__dirname, "..", "./reports/index.html"),
       openAnalyzer: false,
+      generateStatsFile: true,
+      statsFilename: path.resolve(__dirname, "..", "./reports/stats.json"),
+      logLevel: "info",
     }),
   ],
 };
